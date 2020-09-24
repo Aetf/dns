@@ -19,8 +19,7 @@ var ABACUS = 'abacus.hosts.unlimited-code.works.';
 D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // all host records
     A('archvps.hosts', IP_ARCHVPS),
-    // TODO: use IP directly
-    CNAME('abacus.hosts', 'abacus.eecs.umich.edu.'),
+    A('abacus.hosts', IP_ABACUS),
 
     // stats records
     CNAME('archvps.stats', ARCHVPS, CF_PROXY_ON),
