@@ -2,20 +2,19 @@
    dnsconfig.js: dnscontrol configuration file for Aetf.
 */
 
-// Providers:
-
+// Providers
 var REG_NONE = NewRegistrar('none', 'NONE');    // No registrar.
 var CLOUDFLARE = NewDnsProvider('cloudflare','CLOUDFLAREAPI');
 
-// HOSTS
+// Hosts
 var IP_ARCHVPS = '45.77.144.92';
 var IP_ABACUS = '141.212.111.192';
+var IP_JIAHUI_GOOGLE_SITE = '173.194.206.121';
 
 var ARCHVPS = 'archvps.hosts.unlimited-code.works.';
 var ABACUS = 'abacus.hosts.unlimited-code.works.';
 
-// Domains:
-
+// Domains
 D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // all host records
     A('archvps.hosts', IP_ARCHVPS),
@@ -59,29 +58,20 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
 );
 
 D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
-    // host records
-    A('archvps', '45.77.144.92'),
-    // stats
-    CNAME('stats.archvps', 'archvps.unlimitedcodeworks.xyz.'),
-
     // web server
     A('@', '45.77.144.92', CF_PROXY_ON),
-    CNAME('www', 'unlimitedcodeworks.xyz.', CF_PROXY_ON),
+    CNAME('www', ARCHVPS, CF_PROXY_ON),
 
     // syncthing
-    CNAME('btsync', 'archvps.unlimitedcodeworks.xyz.'),
+    CNAME('btsync', ARCHVPS),
     // syncthing ui
-    CNAME('bt', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
-
-    // nextcloud
-    CNAME('dav', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
-    CNAME('files', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
+    CNAME('bt', ARCHVPS, CF_PROXY_ON),
 
     // misc
-    CNAME('games', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
-    CNAME('game', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
-    CNAME('gift', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
-    CNAME('test', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
+    CNAME('games', ARCHVPS, CF_PROXY_ON),
+    CNAME('game', ARCHVPS, CF_PROXY_ON),
+    CNAME('gift', ARCHVPS, CF_PROXY_ON),
+    CNAME('test', ARCHVPS, CF_PROXY_ON),
 
     // email handling by improvmx.com
     MX('@', 20, 'mx2.improvmx.com.'),
@@ -91,8 +81,6 @@ D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
     // for google analysis
     TXT('@', 'google-site-verification=N74Krrj_GYGUYgHSXUBX735CRdKwNKw736bDUnE-V2U')
 );
-
-var IP_JIAHUI_GOOGLE_SITE = '173.194.206.121';
 
 D("jiahui.id", REG_NONE, DnsProvider(CLOUDFLARE),
     // forward to google site
