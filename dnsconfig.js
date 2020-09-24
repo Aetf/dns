@@ -92,12 +92,12 @@ D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
     TXT('@', 'google-site-verification=N74Krrj_GYGUYgHSXUBX735CRdKwNKw736bDUnE-V2U')
 );
 
-D("jiahui.id", REG_NONE, DnsProvider(CLOUDFLARE),
-    // unused
-    A('@', '45.77.144.92'),
+var IP_JIAHUI_GOOGLE_SITE = '173.194.206.121';
 
+D("jiahui.id", REG_NONE, DnsProvider(CLOUDFLARE),
     // forward to google site
-    A('www', '173.194.206.121'),
+    A('@', IP_JIAHUI_GOOGLE_SITE),
+    A('www', IP_JIAHUI_GOOGLE_SITE),
     TXT('@', 'google-site-verification=PyY9W6ikS_voZGQE3i_JGRNPvMUw5o2QNyGxpnRxSoU'),
     TXT('@', 'google-site-verification=y6Df9QsIorwAdC8bsyCBMtlu3HpzPqppgM7syZsBTyo'),
 
