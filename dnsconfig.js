@@ -36,7 +36,7 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
 
     // nextcloud
     CNAME('files', ARCHVPS, CF_PROXY_ON),
-    CNAME('dav', ARCHVPS),
+    CNAME('dav', ARCHVPS, CF_PROXY_ON),
 
     // jupyter, handled by archvps, but backend is at abacus
     CNAME('jupyter', ARCHVPS, CF_PROXY_ON),
@@ -77,7 +77,7 @@ D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
     CNAME('bt', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
 
     // nextcloud
-    CNAME('dav', 'archvps.unlimitedcodeworks.xyz.'),
+    CNAME('dav', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
     CNAME('files', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
 
     // misc
