@@ -55,10 +55,7 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // email handling using improvmx.com
     MX('@', 20, 'mx2.improvmx.com.'),
     MX('@', 10, 'mx1.improvmx.com.'),
-    TXT('@', 'v=spf1 include:spf.improvmx.com ~all'),
-
-    // left over for mailgun
-    TXT('krs._domainkey', 'k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1dtf/Wj14BOMNtFjhWQcO0DmHh5E7YQJ7mEMiC3JwRWT1fPSMNtr2EQVwQuMOdU5hOzG3ni7aurG0CAohWTemp3W3OzuAan3GZkjbZ8jjJWWt6cvl7zBaFse45uuBwCa0ieY282NwzGmoUl/hu0l1U68WdxPhm5KIRG8k/4tmSrvxIgvXeRC411iZzG/BuY5c2+z4OUYwZLDs9NmrKyC/SZb7psqKODRwxDKyBiJnhw60OHjegmHhRnpbkA2NN8GIcHDZtnY2rZEFGstyso022exqd2vf0AVDvxqosKLAAJbULZD1cdzV0k5J8DKH0Yq8o0iJuz4Mjy2hDAdX3dWmQIDAQAB')
+    TXT('@', 'v=spf1 include:spf.improvmx.com ~all')
 );
 
 D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
@@ -85,11 +82,6 @@ D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
     CNAME('game', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
     CNAME('gift', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
     CNAME('test', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
-
-    // TODO: remove this
-    CNAME('static', 'archvps.unlimitedcodeworks.xyz.', CF_PROXY_ON),
-
-    CNAME('vpn', 'archvps.unlimitedcodeworks.xyz.'),
 
     // email handling by improvmx.com
     MX('@', 20, 'mx2.improvmx.com.'),
