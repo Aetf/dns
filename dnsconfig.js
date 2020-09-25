@@ -6,11 +6,25 @@
 var REG_NONE = NewRegistrar('none', 'NONE');    // No registrar.
 var CLOUDFLARE = NewDnsProvider('cloudflare','CLOUDFLAREAPI');
 
-// Hosts
+// Static hosts
 var IP_ARCHVPS = '45.77.144.92';
 var IP_ABACUS = '141.212.111.192';
 var IP_JIAHUI_GOOGLE_SITE = '173.194.206.121';
 
+// ZeroTier hosts
+var ZT_HOSTS = [
+    ['abacus', '10.144.94.148'],
+    ['archxps', '10.144.175.24'],
+    ['archmac', '10.144.70.238'],
+    ['mbp', '10.144.232.243'],
+    ['op6t', '10.144.160.97'],
+    ['aetflaptop', '10.144.127.147'],
+    ['archvps', '10.144.160.212'],
+].map(function(elem) {
+    return A(elem[0] + '.zt', elem[1])
+});
+
+// Host constants
 var ARCHVPS = 'archvps.hosts.unlimited-code.works.';
 var ABACUS = 'abacus.hosts.unlimited-code.works.';
 
@@ -32,6 +46,8 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // all host records
     A('archvps.hosts', IP_ARCHVPS),
     A('abacus.hosts', IP_ABACUS),
+
+    ZT_HOSTS,
 
     // stats records
     CNAME('archvps.stats', ARCHVPS, CF_PROXY_ON),
