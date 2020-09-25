@@ -1,0 +1,11 @@
+{
+  "spf.improvmx.com": {
+    "SPF": "v=spf1 include:spf4.improvmx.com include:spf6.improvmx.com -all"
+  },
+  "spf4.improvmx.com": {
+    "SPF": "v=spf1 ip4:51.91.128.110 ip4:51.91.128.125 ip4:51.91.67.147 ip4:51.91.72.73 ip4:51.255.220.160/27 ip4:91.134.148.0/27 ip4:5.39.55.160/27 ip4:51.77.22.128/27 -all"
+  },
+  "spf6.improvmx.com": {
+    "SPF": "v=spf1 ip6:2001:41d0:303:be6e::/64 ip6:2001:41d0:303:be7d::/64 ip6:2001:41d0:303:c493::/64 ip6:2001:41d0:303:c749::/64 -all"
+  }
+}

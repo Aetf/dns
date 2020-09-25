@@ -14,6 +14,19 @@ var IP_JIAHUI_GOOGLE_SITE = '173.194.206.121';
 var ARCHVPS = 'archvps.hosts.unlimited-code.works.';
 var ABACUS = 'abacus.hosts.unlimited-code.works.';
 
+// SPF settings
+var SPF_SETTINGS = SPF_BUILDER({
+    label: '@',
+    overflow: "_spf%d",
+    overhead1: "20",
+    parts: [
+        'v=spf1',
+        'include:spf.improvmx.com',
+        '~all',
+    ],
+    flatten: []
+});
+
 // Domains
 D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // all host records
@@ -54,7 +67,8 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // email handling using improvmx.com
     MX('@', 20, 'mx2.improvmx.com.'),
     MX('@', 10, 'mx1.improvmx.com.'),
-    TXT('@', 'v=spf1 include:spf.improvmx.com ~all')
+
+    SPF_SETTINGS
 );
 
 D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
@@ -76,7 +90,7 @@ D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
     // email handling by improvmx.com
     MX('@', 20, 'mx2.improvmx.com.'),
     MX('@', 10, 'mx1.improvmx.com.'),
-    TXT('@', 'v=spf1 include:spf.improvmx.com ~all'),
+    SPF_SETTINGS,
 
     // for google analysis
     TXT('@', 'google-site-verification=N74Krrj_GYGUYgHSXUBX735CRdKwNKw736bDUnE-V2U')
