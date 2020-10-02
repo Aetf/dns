@@ -13,13 +13,13 @@ var IP_JIAHUI_GOOGLE_SITE = '173.194.206.121';
 
 // ZeroTier hosts
 var ZT_HOSTS = [
-    ['abacus', '10.144.94.148'],
-    ['archxps', '10.144.175.24'],
-    ['archmac', '10.144.70.238'],
-    ['mbp', '10.144.232.243'],
-    ['op6t', '10.144.160.97'],
-    ['aetflaptop', '10.144.127.147'],
-    ['archvps', '10.144.160.212'],
+    ['Abacus', '10.144.94.148'],
+    ['Aetf-Arch-XPS', '10.144.175.24'],
+    ['Aetf-Arch-Mac', '10.144.70.238'],
+    ['Aetf-MacbookPro', '10.144.232.243'],
+    ['OnePlus6T', '10.144.160.97'],
+    ['Aetf-Laptop', '10.144.127.147'],
+    ['Aetf-Arch-VPS', '10.144.160.212'],
 ].map(function(elem) {
     return A(elem[0] + '.zt', elem[1])
 });
