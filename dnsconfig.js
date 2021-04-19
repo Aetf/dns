@@ -48,9 +48,9 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     A('abacus.hosts', IP_ABACUS),
 
     ZT_HOSTS,
-
+  
     // stats records
-    CNAME('archvps.stats', ARCHVPS, CF_PROXY_ON),
+    //CNAME('archvps.stats', ARCHVPS, CF_PROXY_ON),
 
     // for web server
     A('@', IP_ARCHVPS, CF_PROXY_ON),
@@ -60,7 +60,7 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     CNAME('bt', ARCHVPS, CF_PROXY_ON),
 
     // management console
-    CNAME('cockpit', ARCHVPS, CF_PROXY_ON),
+    //CNAME('cockpit', ARCHVPS, CF_PROXY_ON),
 
     // nextcloud
     CNAME('files', ARCHVPS, CF_PROXY_ON),
@@ -79,6 +79,9 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // matrix home server related
     CNAME('matrix', ARCHVPS),
     SRV('_matrix-identity._tcp', 10, 0, 443, 'matrix.unlimited-code.works.'),
+  
+    // test
+    CNAME('test', ARCHVPS),
 
     // email handling using improvmx.com
     MX('@', 20, 'mx2.improvmx.com.'),
