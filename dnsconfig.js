@@ -50,7 +50,7 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     ZT_HOSTS,
   
     // stats records
-    //CNAME('archvps.stats', ARCHVPS, CF_PROXY_ON),
+    CNAME('archvps.stats', ARCHVPS, CF_PROXY_ON),
 
     // for web server
     A('@', IP_ARCHVPS, CF_PROXY_ON),
