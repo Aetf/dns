@@ -30,6 +30,7 @@ var ABACUS = 'abacus.hosts.unlimited-code.works.';
 
 // email handling using improvmx.com
 var EMAIL_SETTINGS = [
+    // incoming router using improvmx.com
     MX('@', 20, 'mx2.improvmx.com.'),
     MX('@', 10, 'mx1.improvmx.com.'),
     SPF_BUILDER({
@@ -38,6 +39,9 @@ var EMAIL_SETTINGS = [
         overhead1: "20",
         parts: [
             'v=spf1',
+            // allow sending using google's SMTP server
+            'include:_spf.google.com',
+            // allow sending using improvmx.com
             'include:spf.improvmx.com',
             '~all',
         ],
