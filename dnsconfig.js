@@ -28,18 +28,39 @@ var ZT_HOSTS = [
 var ARCHVPS = 'archvps.hosts.unlimited-code.works.';
 var ABACUS = 'abacus.hosts.unlimited-code.works.';
 
-// SPF settings
-var SPF_SETTINGS = SPF_BUILDER({
-    label: '@',
-    overflow: "_spf%d",
-    overhead1: "20",
-    parts: [
-        'v=spf1',
-        'include:spf.improvmx.com',
-        '~all',
-    ],
-    flatten: []
-});
+// email handling using improvmx.com
+var EMAIL_SETTINGS = [
+    MX('@', 20, 'mx2.improvmx.com.'),
+    MX('@', 10, 'mx1.improvmx.com.'),
+    SPF_BUILDER({
+        label: '@',
+        overflow: "_spf%d",
+        overhead1: "20",
+        parts: [
+            'v=spf1',
+            'include:spf.improvmx.com',
+            '~all',
+        ],
+        flatten: []
+    }),
+    // DKIM, the public key is generated in k8s
+    TXT('k8s._domainkey', [
+        'v=DKIM1; p=',
+        "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuzTvyPAmNw5A3UK+60qy",
+        "FZ1bxydUZPqZ93+Y/iTQdYPK8GjHs/RpnbBwCUMuHqjcjgm6c2pCKPxIGPjBSfzT",
+        "cX4KaMb3dG+dios0H9g8wgXT8k1uimMibfIkCir7gxWxPS+hDnUA3/WSbaLHqJIF",
+        "Du/Wi+QtthXY16gzIVU+V7Z0UwB97uKZTypBDOT8USlwJwqe8GFSsQenqJ2YiQFf",
+        "IeVrnRIeaNuhyi6zGdNIXSXslvZL4FOENzELciJ2WHOSXHattqJ5G/FiOWiA9QI+",
+        "66KRIFQ7Hjc5DtUOURyfTykH6HgDxDUXHMqMl4qfY5UV5S83K+rLITWCCZGbz2HJ",
+        "rQIDAQAB",
+    ].join('')),
+    DMARC_BUILDER({
+        // TODO: change to reject
+        policy: 'none',
+        alignmentSPF: 'relaxed',
+        alignmentDKIM: 'strict',
+    }),
+];
 
 // Domains
 D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
@@ -83,11 +104,7 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // test
     CNAME('test', ARCHVPS),
 
-    // email handling using improvmx.com
-    MX('@', 20, 'mx2.improvmx.com.'),
-    MX('@', 10, 'mx1.improvmx.com.'),
-
-    SPF_SETTINGS
+    EMAIL_SETTINGS
 );
 
 D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
@@ -107,9 +124,7 @@ D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
     CNAME('test', ARCHVPS, CF_PROXY_ON),
 
     // email handling by improvmx.com
-    MX('@', 20, 'mx2.improvmx.com.'),
-    MX('@', 10, 'mx1.improvmx.com.'),
-    SPF_SETTINGS,
+    EMAIL_SETTINGS,
 
     // for google analysis
     TXT('@', 'google-site-verification=N74Krrj_GYGUYgHSXUBX735CRdKwNKw736bDUnE-V2U')
