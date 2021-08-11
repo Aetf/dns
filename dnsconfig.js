@@ -124,14 +124,10 @@ D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
 
     // syncthing
     CNAME('btsync', ARCHVPS),
-    // syncthing ui
-    CNAME('bt', ARCHVPS, CF_PROXY_ON),
 
     // misc
     CNAME('games', ARCHVPS, CF_PROXY_ON),
     CNAME('game', ARCHVPS, CF_PROXY_ON),
-    CNAME('gift', ARCHVPS, CF_PROXY_ON),
-    CNAME('test', ARCHVPS, CF_PROXY_ON),
 
     // email handling by improvmx.com
     EMAIL_SETTINGS,
