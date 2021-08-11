@@ -73,7 +73,13 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     A('abacus.hosts', IP_ABACUS),
 
     ZT_HOSTS,
-  
+
+    // auth portal
+    CNAME('auth', ARCHVPS, CF_PROXY_ON),
+
+    // k8s portal
+    CNAME('k8s', ARCHVPS, CF_PROXY_ON),
+
     // stats records
     CNAME('archvps.stats', ARCHVPS),
 
