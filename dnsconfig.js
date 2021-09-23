@@ -106,11 +106,12 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // syncthing, in addition to the web ui, this is also used by discover and relay server
     // which are on other ports
     CNAME('sync', ARCHVPS),
+    CNAME('stdiscosrv', ARCHVPS),
 
     // matrix home server related
     CNAME('matrix', ARCHVPS),
     SRV('_matrix-identity._tcp', 10, 0, 443, 'matrix.unlimited-code.works.'),
-  
+
     // test
     CNAME('test', ARCHVPS),
 
