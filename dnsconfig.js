@@ -115,7 +115,10 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // test
     CNAME('test', ARCHVPS),
 
-    EMAIL_SETTINGS
+    EMAIL_SETTINGS,
+
+    // for google analysis
+    TXT('@', 'google-site-verification=u5QSDhgnrgdr-ojW6yDGKD9fM3jJIzFnYxElzH9DNDI')
 );
 
 D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
