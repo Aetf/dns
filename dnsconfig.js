@@ -20,6 +20,7 @@ var ZT_HOSTS = [
     ['OnePlus6T', '10.144.160.97'],
     ['Aetf-Laptop', '10.144.127.147'],
     ['Aetf-Arch-VPS', '10.144.160.212'],
+    ['Aetf-Arch-Homelab', '10.144.180.10'],
 ].map(function(elem) {
     return A(elem[0] + '.zt', elem[1])
 });
