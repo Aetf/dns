@@ -9,6 +9,6 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: DNSControl check
-        uses: koenrh/dnscontrol-action@v3.18.1
+        uses: koenrh/dnscontrol-action@v3
         with:
           args: check
