@@ -101,6 +101,9 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // jupyter, handled by archvps, but backend is at abacus
     CNAME('jupyter', ARCHVPS, CF_PROXY_ON),
 
+    // minecraft server, which uses non http ports so no cf proxy
+    CNAME('mc', ARCHVPS),
+
     // SSO login page
     CNAME('login', ARCHVPS, CF_PROXY_ON),
 
