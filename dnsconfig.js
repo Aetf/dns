@@ -3,8 +3,8 @@
 */
 
 // Providers
-var REG_NONE = NewRegistrar('none', 'NONE');    // No registrar.
-var CLOUDFLARE = NewDnsProvider('cloudflare','CLOUDFLAREAPI');
+var REG_NONE = NewRegistrar('none');    // No registrar.
+var CLOUDFLARE = NewDnsProvider('cloudflare');
 
 // Static hosts
 var IP_ARCHVPS = '45.77.144.92';
@@ -32,8 +32,11 @@ var ABACUS = 'abacus.hosts.unlimited-code.works.';
 // email handling using improvmx.com
 var EMAIL_SETTINGS = [
     // incoming router using improvmx.com
-    MX('@', 20, 'mx2.improvmx.com.'),
-    MX('@', 10, 'mx1.improvmx.com.'),
+    MX('@', 1, 'ASPMX.L.GOOGLE.COM.', TTL('1h')),
+    MX('@', 5, 'ALT1.ASPMX.L.GOOGLE.COM.', TTL('1h')),
+    MX('@', 5, 'ALT2.ASPMX.L.GOOGLE.COM.', TTL('1h')),
+    MX('@', 10, 'ALT3.ASPMX.L.GOOGLE.COM.', TTL('1h')),
+    MX('@', 10, 'ALT4.ASPMX.L.GOOGLE.COM.', TTL('1h')),
     SPF_BUILDER({
         label: '@',
         overflow: "_spf%d",
@@ -46,7 +49,8 @@ var EMAIL_SETTINGS = [
             'include:spf.improvmx.com',
             '~all',
         ],
-        flatten: []
+        flatten: [],
+        ttl: '1h'
     }),
     // DKIM, the public key is generated in k8s
     TXT('k8s._domainkey', [
@@ -124,7 +128,9 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     EMAIL_SETTINGS,
 
     // for google analysis
-    TXT('@', 'google-site-verification=u5QSDhgnrgdr-ojW6yDGKD9fM3jJIzFnYxElzH9DNDI')
+    TXT('@', 'google-site-verification=u5QSDhgnrgdr-ojW6yDGKD9fM3jJIzFnYxElzH9DNDI', TTL(3600)),
+    // for google workspace
+    TXT('@', 'google-site-verification=ITwgKBtamT013cCC7wPlM0N2Rloca0feIiYV4Q11dyI', TTL(3600))
 );
 
 D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
@@ -143,7 +149,9 @@ D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
     EMAIL_SETTINGS,
 
     // for google analysis
-    TXT('@', 'google-site-verification=N74Krrj_GYGUYgHSXUBX735CRdKwNKw736bDUnE-V2U')
+    TXT('@', 'google-site-verification=N74Krrj_GYGUYgHSXUBX735CRdKwNKw736bDUnE-V2U', TTL(3600)),
+    // for google workspace
+    TXT('@', 'google-site-verification=UtkDDgsgiGtS-w7Fg4DyiaFFVQOgmM5nJvLnRbCFXjc', TTL(3600))
 );
 
 D("jiahui.id", REG_NONE, DnsProvider(CLOUDFLARE),
