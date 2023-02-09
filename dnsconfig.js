@@ -63,15 +63,6 @@ var EMAIL_SETTINGS = [
         "66KRIFQ7Hjc5DtUOURyfTykH6HgDxDUXHMqMl4qfY5UV5S83K+rLITWCCZGbz2HJ",
         "rQIDAQAB",
     ].join('')),
-   TXT('google._domainkey', [
-        'v=DKIM1; k=rsa; p=',
-        'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmDjiROuvxKYUKjDum/Qqg',
-        'yRIK0ljj6GyJoNJNHVIgMZGER2jfPwhbwJ8/j/Io0naraxBUSeqqQNmip/x8Zp0Dr',
-        'uQ8RJlRnK94gc5l2iyfVomttWa32LvKgoS4o05VaJSCHzYFuM262i3V5P+ELov/nx',
-        'P12bIH4SHzrrJOQidDgStK7iqzTaL+uZkVBBcx5MZn7CpwjHp7LfzBrn8y6y/LboXJ',
-        'g/XxJwOiuPbbPi2SM2ypDZfa57dpAVf44VMmz7skyljXFgCstd+TokodgcFxz9ACGF',
-        'kArtWFA0vc86fV3E7rcSnsRUNhqWNH0n+2eK1Ka1Hmb1AY93fXUV3ZiNbVwIDAQAB',
-    ].join('')),
     DMARC_BUILDER({
         // TODO: change to reject
         policy: 'none',
@@ -133,8 +124,18 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
 
     // test
     CNAME('test', ARCHVPS),
-
+    
+    // Email settings, google domainkey must be unique for each domain
     EMAIL_SETTINGS,
+    TXT('google._domainkey', [
+        'v=DKIM1; k=rsa; p=',
+        'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmDjiROuvxKYUKjDum/Qqg',
+        'yRIK0ljj6GyJoNJNHVIgMZGER2jfPwhbwJ8/j/Io0naraxBUSeqqQNmip/x8Zp0Dr',
+        'uQ8RJlRnK94gc5l2iyfVomttWa32LvKgoS4o05VaJSCHzYFuM262i3V5P+ELov/nx',
+        'P12bIH4SHzrrJOQidDgStK7iqzTaL+uZkVBBcx5MZn7CpwjHp7LfzBrn8y6y/LboXJ',
+        'g/XxJwOiuPbbPi2SM2ypDZfa57dpAVf44VMmz7skyljXFgCstd+TokodgcFxz9ACGF',
+        'kArtWFA0vc86fV3E7rcSnsRUNhqWNH0n+2eK1Ka1Hmb1AY93fXUV3ZiNbVwIDAQAB',
+    ].join('')),
 
     // for google analysis
     TXT('@', 'google-site-verification=u5QSDhgnrgdr-ojW6yDGKD9fM3jJIzFnYxElzH9DNDI', TTL(3600)),
@@ -155,7 +156,17 @@ D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
     CNAME('game', ARCHVPS, CF_PROXY_ON),
 
     // email settings shared between unlimitedcodeworks.xyz and unlimited-code.works
+    // google domainkey must be unique for each domain
     EMAIL_SETTINGS,
+    TXT('google._domainkey', [
+        'v=DKIM1; k=rsa; p=',
+        'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsyWXMJPWxoltTD/mUFrYU',
+        'YtZhqeKWL0VAi3F3Sner5jgfykNKQDsnNjkQqSY++paPjLwvxs6pOZGO7fgi186A5Z',
+        'RN8JKpi/V0oIJ9taPxERZv28Nzp/GlUA4TZdnplK6nLsK4gIPTVinjwudecCOpcJJae',
+        'NxJkSNpw48D8Ar6gsa3nO1+Grclu9TUNePyLWlaRmzCz+uTBs/3SadQgitwASr+1Szg',
+        'IopcWy3ncpk6xi+ExcmabFco5e6WdUgp45Tz+2uoKKGPK/63JqCStnj6C9H8+JmeyyxZ',
+        'j+K8hD0+4IkDmJmv6piSm6zPF9TdpPTAIKMAy6K277OCy2KASMBkwIDAQAB',
+    ].join('')),
 
     // for google analysis
     TXT('@', 'google-site-verification=N74Krrj_GYGUYgHSXUBX735CRdKwNKw736bDUnE-V2U', TTL(3600)),
