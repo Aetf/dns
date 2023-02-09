@@ -29,9 +29,9 @@ var ZT_HOSTS = [
 var ARCHVPS = 'archvps.hosts.unlimited-code.works.';
 var ABACUS = 'abacus.hosts.unlimited-code.works.';
 
-// email handling using improvmx.com
+// email handling using Google Workspace
 var EMAIL_SETTINGS = [
-    // incoming router using improvmx.com
+    // incoming router using Google Workspace
     MX('@', 1, 'ASPMX.L.GOOGLE.COM.', TTL('1h')),
     MX('@', 5, 'ALT1.ASPMX.L.GOOGLE.COM.', TTL('1h')),
     MX('@', 5, 'ALT2.ASPMX.L.GOOGLE.COM.', TTL('1h')),
@@ -154,7 +154,7 @@ D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
     CNAME('games', ARCHVPS, CF_PROXY_ON),
     CNAME('game', ARCHVPS, CF_PROXY_ON),
 
-    // email handling by improvmx.com
+    // email settings shared between unlimitedcodeworks.xyz and unlimited-code.works
     EMAIL_SETTINGS,
 
     // for google analysis
