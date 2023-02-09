@@ -63,6 +63,15 @@ var EMAIL_SETTINGS = [
         "66KRIFQ7Hjc5DtUOURyfTykH6HgDxDUXHMqMl4qfY5UV5S83K+rLITWCCZGbz2HJ",
         "rQIDAQAB",
     ].join('')),
+   TXT('google._domainkey', [
+        'v=DKIM1; k=rsa; p=',
+        'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmDjiROuvxKYUKjDum/Qqg',
+        'yRIK0ljj6GyJoNJNHVIgMZGER2jfPwhbwJ8/j/Io0naraxBUSeqqQNmip/x8Zp0Dr',
+        'uQ8RJlRnK94gc5l2iyfVomttWa32LvKgoS4o05VaJSCHzYFuM262i3V5P+ELov/nx',
+        'P12bIH4SHzrrJOQidDgStK7iqzTaL+uZkVBBcx5MZn7CpwjHp7LfzBrn8y6y/LboXJ',
+        'g/XxJwOiuPbbPi2SM2ypDZfa57dpAVf44VMmz7skyljXFgCstd+TokodgcFxz9ACGF',
+        'kArtWFA0vc86fV3E7rcSnsRUNhqWNH0n+2eK1Ka1Hmb1AY93fXUV3ZiNbVwIDAQAB',
+    ].join('')),
     DMARC_BUILDER({
         // TODO: change to reject
         policy: 'none',
