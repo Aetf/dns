@@ -45,8 +45,6 @@ var EMAIL_SETTINGS = [
             'v=spf1',
             // allow sending using google's SMTP server
             'include:_spf.google.com',
-            // allow sending using improvmx.com
-            'include:spf.improvmx.com',
             '~all',
         ],
         flatten: [],
