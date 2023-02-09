@@ -62,10 +62,12 @@ var EMAIL_SETTINGS = [
         "rQIDAQAB",
     ].join('')),
     DMARC_BUILDER({
-        // TODO: change to reject
-        policy: 'none',
-        alignmentSPF: 'relaxed',
+        policy: 'reject',
+        alignmentSPF: 'strict',
         alignmentDKIM: 'strict',
+        rua: [
+            'mailto:dmarc-reports@unlimited-code.works',
+        ]
     }),
 ];
 
