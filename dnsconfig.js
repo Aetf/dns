@@ -62,7 +62,7 @@ var EMAIL_SETTINGS = [
         "rQIDAQAB",
     ].join('')),
     DMARC_BUILDER({
-        policy: 'reject',
+        policy: 'quarantine',
         alignmentSPF: 'strict',
         alignmentDKIM: 'strict',
         rua: [
