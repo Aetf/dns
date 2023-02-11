@@ -129,12 +129,10 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     EMAIL_SETTINGS,
     TXT('google._domainkey', [
         'v=DKIM1; k=rsa; p=',
-        'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmDjiROuvxKYUKjDum/Qqg',
-        'yRIK0ljj6GyJoNJNHVIgMZGER2jfPwhbwJ8/j/Io0naraxBUSeqqQNmip/x8Zp0Dr',
-        'uQ8RJlRnK94gc5l2iyfVomttWa32LvKgoS4o05VaJSCHzYFuM262i3V5P+ELov/nx',
-        'P12bIH4SHzrrJOQidDgStK7iqzTaL+uZkVBBcx5MZn7CpwjHp7LfzBrn8y6y/LboXJ',
-        'g/XxJwOiuPbbPi2SM2ypDZfa57dpAVf44VMmz7skyljXFgCstd+TokodgcFxz9ACGF',
-        'kArtWFA0vc86fV3E7rcSnsRUNhqWNH0n+2eK1Ka1Hmb1AY93fXUV3ZiNbVwIDAQAB',
+        '+1hspRFvzzdrOnRnVsqz3ijxeg4Z6iIjLbdTvApAVZCWo05eZIDm4CZ8syLpnjYi5QIDAQAB',
+        'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCB9A/w8c0RjwW3q75z2gKp36XdkSJw/76R',
+        'EGqcowEvFZMysz3JTsjCnErawdQytLTzs9a6Tz3i0Lgx1z9uCOD+xHIiE2zbTyY3Wyb8YZiX',
+        '4K6nAbgjUoxtTS4BwiMrRpHjvtWJ3Kq4hAZyr9wyWaJ5Coglk4SQAhFW8DFz550HyQIDAQAB',
     ].join('')),
 
     // for google analysis
@@ -160,12 +158,9 @@ D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
     EMAIL_SETTINGS,
     TXT('google._domainkey', [
         'v=DKIM1; k=rsa; p=',
-        'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsyWXMJPWxoltTD/mUFrYU',
-        'YtZhqeKWL0VAi3F3Sner5jgfykNKQDsnNjkQqSY++paPjLwvxs6pOZGO7fgi186A5Z',
-        'RN8JKpi/V0oIJ9taPxERZv28Nzp/GlUA4TZdnplK6nLsK4gIPTVinjwudecCOpcJJae',
-        'NxJkSNpw48D8Ar6gsa3nO1+Grclu9TUNePyLWlaRmzCz+uTBs/3SadQgitwASr+1Szg',
-        'IopcWy3ncpk6xi+ExcmabFco5e6WdUgp45Tz+2uoKKGPK/63JqCStnj6C9H8+JmeyyxZ',
-        'j+K8hD0+4IkDmJmv6piSm6zPF9TdpPTAIKMAy6K277OCy2KASMBkwIDAQAB',
+        'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCOPxdlkUm47Ee6y/Y4Icg5OtwU0MzQhe/K',
+        'g0eI8crEXiOwFw1pMmBBXwhaEdHGwj3dQJhsdvZzUGLgaSu6bK0zCZOGEISF8zUDrJD7SL9c',
+        '+1hspRFvzzdrOnRnVsqz3ijxeg4Z6iIjLbdTvApAVZCWo05eZIDm4CZ8syLpnjYi5QIDAQAB',
     ].join('')),
 
     // for google analysis
