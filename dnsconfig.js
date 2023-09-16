@@ -87,6 +87,9 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // k8s monitoring
     CNAME('mon', ARCHVPS, CF_PROXY_ON),
 
+    // photos service
+    CNAME('photos', ARCHVPS, CF_PROXY_ON),
+
     // stats records
     CNAME('archvps.stats', ARCHVPS),
 
