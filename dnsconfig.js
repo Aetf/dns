@@ -118,8 +118,8 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
 
     // syncthing, in addition to the web ui, this is also used by discover and relay server
     // which are on other ports
-    CNAME('sync', ARCHVPS),
-    CNAME('stdiscosrv', ARCHVPS),
+    CNAME('sync', ARCHVPS, CF_PROXY_ON),
+    CNAME('syncapi', ARCHVPS),
 
     // matrix home server related
     CNAME('matrix', ARCHVPS),
