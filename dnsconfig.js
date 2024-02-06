@@ -128,7 +128,10 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
 
     // test
     CNAME('test', ARCHVPS),
-    
+
+    // Home assistant
+    CNAME('haos', ARCHVPS),
+
     // Email settings, google domainkey must be unique for each domain
     EMAIL_SETTINGS,
     TXT('google._domainkey', [
