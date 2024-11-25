@@ -203,3 +203,65 @@ D("jiahui.love", REG_NONE, DnsProvider(CLOUDFLARE),
     CNAME('ji', 'jiahui.love.', CF_PROXY_ON),
     CNAME('peifeng', 'jiahui.love.', CF_PROXY_ON)
 );
+
+['peifeng.phd', 'ucw.phd'].forEach(function(domain) {
+    D(domain, REG_NONE, DnsProvider(CLOUDFLARE),
+        // all host records
+        A('archvps.hosts', IP_ARCHVPS),
+        A('abacus.hosts', IP_ABACUS),
+
+        ZT_HOSTS,
+
+        // auth portal
+        CNAME('auth', ARCHVPS, CF_PROXY_ON),
+
+        // k8s portal
+        CNAME('k8s', ARCHVPS, CF_PROXY_ON),
+        // k8s monitoring
+        CNAME('mon', ARCHVPS, CF_PROXY_ON),
+
+        // photos service
+        CNAME('photos', ARCHVPS, CF_PROXY_ON),
+
+        // for web server
+        A('@', IP_ARCHVPS, CF_PROXY_ON),
+        CNAME('www', ARCHVPS, CF_PROXY_ON),
+
+        // qbitorrent UI
+        CNAME('bt', ARCHVPS, CF_PROXY_ON),
+
+        // management console
+        //CNAME('cockpit', ARCHVPS, CF_PROXY_ON),
+
+        // nextcloud
+        CNAME('files', ARCHVPS, CF_PROXY_ON),
+        CNAME('dav', ARCHVPS, CF_PROXY_ON),
+
+        // jupyter, handled by archvps, but backend is at abacus
+        CNAME('jupyter', ARCHVPS, CF_PROXY_ON),
+
+        // minecraft server, which uses non http ports so no cf proxy
+        CNAME('mc', ARCHVPS),
+
+        // SSO login page
+        CNAME('login', ARCHVPS, CF_PROXY_ON),
+
+        // syncthing, in addition to the web ui, this is also used by discover and relay server
+        // which are on other ports
+        CNAME('sync', ARCHVPS, CF_PROXY_ON),
+        CNAME('syncapi', ARCHVPS),
+
+        // matrix home server related
+        CNAME('matrix', ARCHVPS),
+        SRV('_matrix-identity._tcp', 10, 0, 443, 'matrix.unlimited-code.works.'),
+
+        // test
+        CNAME('test', ARCHVPS),
+
+        // Home assistant
+        CNAME('haos', ARCHVPS, CF_PROXY_ON),
+
+        // Jellyfin
+        CNAME('tube', ARCHVPS, CF_PROXY_ON)
+    );
+});
