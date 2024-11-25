@@ -130,7 +130,10 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     CNAME('test', ARCHVPS),
 
     // Home assistant
-    CNAME('haos', ARCHVPS),
+    CNAME('haos', ARCHVPS, CF_PROXY_ON),
+
+    // Jellyfin
+    CNAME('tube', ARCHVPS, CF_PROXY_ON),
 
     // Email settings, google domainkey must be unique for each domain
     EMAIL_SETTINGS,
