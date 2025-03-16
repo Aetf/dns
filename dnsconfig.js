@@ -113,6 +113,7 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
 
     // minecraft server, which uses non http ports so no cf proxy
     CNAME('mc', ARCHVPS),
+    CNAME('mcmap', ARCHVPS),
 
     // SSO login page
     CNAME('login', ARCHVPS, CF_PROXY_ON),
@@ -242,6 +243,7 @@ D("jiahui.love", REG_NONE, DnsProvider(CLOUDFLARE),
 
         // minecraft server, which uses non http ports so no cf proxy
         CNAME('mc', ARCHVPS),
+        CNAME('mcmap', ARCHVPS),
 
         // SSO login page
         CNAME('login', ARCHVPS, CF_PROXY_ON),
