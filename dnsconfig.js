@@ -136,6 +136,9 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // Jellyfin
     CNAME('tube', ARCHVPS, CF_PROXY_ON),
 
+    // Spoolman
+    CNAME('spool', ARCHVPS, CF_PROXY_ON),
+
     // Email settings, google domainkey must be unique for each domain
     EMAIL_SETTINGS,
     TXT('google._domainkey', [
@@ -264,6 +267,9 @@ D("jiahui.love", REG_NONE, DnsProvider(CLOUDFLARE),
         CNAME('haos', ARCHVPS, CF_PROXY_ON),
 
         // Jellyfin
-        CNAME('tube', ARCHVPS, CF_PROXY_ON)
+        CNAME('tube', ARCHVPS, CF_PROXY_ON),
+
+        // Spoolman
+        CNAME('spool', ARCHVPS, CF_PROXY_ON)
     );
 });
