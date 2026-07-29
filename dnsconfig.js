@@ -123,6 +123,10 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     CNAME('sync', ARCHVPS, CF_PROXY_ON),
     CNAME('syncapi', ARCHVPS),
 
+    // Syncthing on NAS
+    // UI only. The instance will rely on normal discovery and relay
+    CNAME('sync-nas', ARCHVPS, CF_PROXY_ON),
+
     // matrix home server related
     CNAME('matrix', ARCHVPS),
     SRV('_matrix-identity._tcp', 10, 0, 443, 'matrix.unlimited-code.works.'),
@@ -138,9 +142,6 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
 
     // Spoolman
     CNAME('spool', ARCHVPS, CF_PROXY_ON),
-
-    // Syncthing on NAS UI
-    CNAME('syncthing-nas', ARCHVPS, CF_PROXY_ON),
 
     // Email settings, google domainkey must be unique for each domain
     EMAIL_SETTINGS,
