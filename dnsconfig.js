@@ -143,6 +143,9 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // Spoolman
     CNAME('spool', ARCHVPS, CF_PROXY_ON),
 
+    // Split Pro
+    CNAME('split', ARCHVPS, CF_PROXY_ON),
+
     // Email settings, google domainkey must be unique for each domain
     EMAIL_SETTINGS,
     TXT('google._domainkey', [
