@@ -8,15 +8,11 @@ var CLOUDFLARE = NewDnsProvider('cloudflare');
 
 // Static hosts
 var IP_ARCHVPS = '45.77.144.92';
-var IP_ABACUS = '141.212.111.192';
 var IP_JIAHUI_GOOGLE_SITE = '173.194.206.121';
 
 // ZeroTier hosts
 var ZT_HOSTS = [
-    ['Abacus', '10.144.94.148'],
     ['Aetf-Arch-XPS', '10.144.175.24'],
-    ['Aetf-Arch-Mac', '10.144.70.238'],
-    ['Aetf-MacbookPro', '10.144.232.243'],
     ['OnePlus6T', '10.144.160.97'],
     ['Aetf-Laptop', '10.144.127.147'],
     ['Aetf-Arch-VPS', '10.144.160.212'],
@@ -28,7 +24,6 @@ var ZT_HOSTS = [
 
 // Host constants
 var ARCHVPS = 'archvps.hosts.unlimited-code.works.';
-var ABACUS = 'abacus.hosts.unlimited-code.works.';
 
 // email handling using Google Workspace
 var EMAIL_SETTINGS = [
@@ -51,16 +46,18 @@ var EMAIL_SETTINGS = [
         flatten: [],
         ttl: '1h'
     }),
-    // DKIM, the public key is generated in k8s
+    // DKIM for mail from the k8s exim relay: the public half of the
+    // cert-dkim-exim private key, pinned with rotationPolicy: Never in
+    // kluster-code src/mail. Re-issuing that key means updating this.
     TXT('k8s._domainkey', [
         'v=DKIM1; p=',
-        "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuzTvyPAmNw5A3UK+60qy",
-        "FZ1bxydUZPqZ93+Y/iTQdYPK8GjHs/RpnbBwCUMuHqjcjgm6c2pCKPxIGPjBSfzT",
-        "cX4KaMb3dG+dios0H9g8wgXT8k1uimMibfIkCir7gxWxPS+hDnUA3/WSbaLHqJIF",
-        "Du/Wi+QtthXY16gzIVU+V7Z0UwB97uKZTypBDOT8USlwJwqe8GFSsQenqJ2YiQFf",
-        "IeVrnRIeaNuhyi6zGdNIXSXslvZL4FOENzELciJ2WHOSXHattqJ5G/FiOWiA9QI+",
-        "66KRIFQ7Hjc5DtUOURyfTykH6HgDxDUXHMqMl4qfY5UV5S83K+rLITWCCZGbz2HJ",
-        "rQIDAQAB",
+        "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuj8B2gp8kvvHRtA2KTdu",
+        "0YPxiEd494Sf3JFo8nC25bqR8ceNTXMimfRY/f3+1+hjm34hD2I1WsUy8wjLgyge",
+        "CjpmZ/UJX9xRF6kW/FyHRml12e4eCq3qiN96++YN8LFh0Xi9Pkm/ION8vhLtCHdv",
+        "MFUgp51Dyz8hwVl54Y/5zvGwxim3VvMy/zNmZelbablRB/kDfaR7EPe4r8z5TW2S",
+        "F35VwhRP8ZR6I3tN7C7ivMhedSdj3GlpL3r0FQym0sNxeIsyeWeO4t/oEya0MP7i",
+        "frXXN1+G5a2BnljcgvCdLP+wp6S//9XfrxPFqfXOxcFb483AW+T8zudxxJMjO+NH",
+        "cQIDAQAB",
     ].join('')),
     DMARC_BUILDER({
         policy: 'quarantine',
@@ -76,7 +73,6 @@ var EMAIL_SETTINGS = [
 D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     // all host records
     A('archvps.hosts', IP_ARCHVPS),
-    A('abacus.hosts', IP_ABACUS),
 
     ZT_HOSTS,
 
@@ -108,11 +104,7 @@ D("unlimited-code.works", REG_NONE, DnsProvider(CLOUDFLARE),
     CNAME('files', ARCHVPS, CF_PROXY_ON),
     CNAME('dav', ARCHVPS, CF_PROXY_ON),
 
-    // jupyter, handled by archvps, but backend is at abacus
-    CNAME('jupyter', ARCHVPS, CF_PROXY_ON),
-
-    // minecraft server, which uses non http ports so no cf proxy
-    CNAME('mc', ARCHVPS),
+    // minecraft map
     CNAME('mcmap', ARCHVPS),
 
     // SSO login page
@@ -219,7 +211,6 @@ D("jiahui.love", REG_NONE, DnsProvider(CLOUDFLARE),
     D(domain, REG_NONE, DnsProvider(CLOUDFLARE),
         // all host records
         A('archvps.hosts', IP_ARCHVPS),
-        A('abacus.hosts', IP_ABACUS),
 
         ZT_HOSTS,
 
@@ -248,11 +239,7 @@ D("jiahui.love", REG_NONE, DnsProvider(CLOUDFLARE),
         CNAME('files', ARCHVPS, CF_PROXY_ON),
         CNAME('dav', ARCHVPS, CF_PROXY_ON),
 
-        // jupyter, handled by archvps, but backend is at abacus
-        CNAME('jupyter', ARCHVPS, CF_PROXY_ON),
-
-        // minecraft server, which uses non http ports so no cf proxy
-        CNAME('mc', ARCHVPS),
+        // minecraft map
         CNAME('mcmap', ARCHVPS),
 
         // SSO login page
