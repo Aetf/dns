@@ -8,7 +8,6 @@ var CLOUDFLARE = NewDnsProvider('cloudflare');
 
 // Static hosts
 var IP_ARCHVPS = '45.77.144.92';
-var IP_JIAHUI_GOOGLE_SITE = '173.194.206.121';
 
 // ZeroTier hosts
 var ZT_HOSTS = [
@@ -182,9 +181,6 @@ D("unlimitedcodeworks.xyz", REG_NONE, DnsProvider(CLOUDFLARE),
 );
 
 D("jiahui.id", REG_NONE, DnsProvider(CLOUDFLARE),
-    // forward to google site
-    A('@', IP_JIAHUI_GOOGLE_SITE),
-    A('www', IP_JIAHUI_GOOGLE_SITE),
     TXT('@', 'google-site-verification=PyY9W6ikS_voZGQE3i_JGRNPvMUw5o2QNyGxpnRxSoU'),
     TXT('@', 'google-site-verification=y6Df9QsIorwAdC8bsyCBMtlu3HpzPqppgM7syZsBTyo'),
 
